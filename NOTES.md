@@ -13,7 +13,7 @@
 ## Deriving the Lorentz Transformations
 
 Tutorial on deriving it for $v$ along $x$ axis:  
-https://www.wetube.com/watch?v=FvqutkaPmas
+https://www.youtube.com/watch?v=FvqutkaPmas
 
 > I like the explaination on why the Lorentz Transformation was chosen to be linear. This instructor thought it is because of the principle of relativity:
 >
@@ -21,7 +21,7 @@ https://www.wetube.com/watch?v=FvqutkaPmas
 > - Also the transformation from $K$ to $K'$ and its "reverse" should be of the same form (no "previledged" IRF needed to determine which is which), and a linear one satisfies that.
 
 Tutorial on deriving it for $v$ along an arbitrary axis:  
-https://www.wetube.com/watch?v=Afd34FuG65A
+https://www.youtube.com/watch?v=Afd34FuG65A
 
 
 # Lecture 2
@@ -148,7 +148,7 @@ The bottom line is $\eta_{\alpha\beta}$ is the object that tells us how to take 
 
 To break it down, first we need to know some rules for choosing coord system for spacetimes, in the realm of relativity.
 
-In flat spacetime (special relativity), we usually choose a basis that is **orthonormal** with respect to the Minkowski metric — that is:
+In flat spacetime (special relativity), we usually choose a basis that is **orthonormal** with respect to the Minkowski metric - that is:
 $$
 \vec e_0 \cdot \vec e_0 = -1, \quad
 \vec e_i \cdot \vec e_j = +\delta_{ij}, \quad
@@ -164,6 +164,8 @@ $$
 Therefore, for the time basis vector $e_0=(1,0,0,0)$ we pick:
 $$e_0 \cdot e_0 = -1$$
 . This just means we’re using a different notion of “distance.” (metric)
+
+(https://archive.lib.msu.edu/crcmath/math/math/m/m264.htm)
 
 > Remember the instructor's verbal tip on how topologies and geometries are separate things, and the donut vs coffee mug (with a handle) analogy in lecture 1?
 
