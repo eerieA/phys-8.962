@@ -744,7 +744,7 @@ These require an odd number of swaps to get from $(1,2,3)$.
 **Quick Example: Cross Product**
 
 $$
-(a \times b)*i = \sum*{jk} \varepsilon_{ijk} a_j b_k
+(a \times b)_i = \sum_{jk} \varepsilon_{ijk} a_j b_k
 $$
 
 If $(i,j,k)$ is an even permutation of $(1,2,3)$, the component matches the usual right-hand rule.
