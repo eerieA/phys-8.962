@@ -15,6 +15,14 @@
         - [The Metric Tensor ($g{\mu\nu}$)](#the-metric-tensor-g\mu\nu)
         - [The Index Lowering Operation](#the-index-lowering-operation)
         - [Calculation of it](#calculation-of-it)
+- [Lecture 4](#lecture-4)
+    - [“Trajectory” of photon is null curve](#trajectory-of-photon-is-null-curve)
+        - [Intuition and proper time](#intuition-and-proper-time)
+        - [The physical reasoning](#the-physical-reasoning)
+    - [Normalizing 4-velo?](#normalizing-4-velo)
+    - [How mass connects to the norm](#how-mass-connects-to-the-norm)
+    - [What is h omega](#what-is-h-omega)
+    - [Levi–Civita and Permutation Parity](#levicivita-and-permutation-parity)
 
 <!-- /TOC -->
 
@@ -427,3 +435,327 @@ A simpler way to see this is that we are multiplying the columns of $T^{\mu\nu}$
     $T^\mu_\nu = \begin{pmatrix} -2 & 0 & 1 & -1 \\ 1 & 0 & 3 & 2 \\ 1 & 1 & 0 & 0 \\ 2 & 1 & 1 & -2 \end{pmatrix}$
 
 The process of "raising" an index is similar but uses the inverse metric, $g^{\mu\nu}$. For the Minkowski metric, the inverse metric happens to be identical to the metric itself.
+
+# Lecture 4
+
+## “Trajectory” of photon is null curve
+
+### Intuition and proper time
+
+In general relativity, the motion of any particle is described by its **4-momentum** or **4-velocity**. For a massive particle, its 4-velocity satisfies
+
+$$
+u^\mu u_\mu = -1
+$$
+
+(with the (-,+,+,+) signature) - this means its worldline is **timelike**.
+
+Let's look at the 4-velocity in differential form. For a "massive" particle it is:
+
+$$
+u^\mu = \frac{dx^\mu}{d\tau},
+$$
+
+where $\tau$ is **proper time**, the time measured by a clock moving with the particle. This is the *only* time parameter that makes sense for defining a velocity in spacetime.
+
+Proper time satisfies:
+
+$$
+d\tau^2 = - \frac{1}{c^2} ds^2.
+$$
+
+For a timelike worldline (massive particle):
+
+$$
+ds^2 < 0 \quad\Rightarrow\quad d\tau^2 > 0.
+$$
+
+For a null worldline (photon):
+
+$$
+ds^2 = 0 \quad\Rightarrow\quad d\tau = 0.
+$$
+
+This is the key: A photon experiences no proper time.
+
+**Because photons travel at the speed of light.**
+
+Reminder about timelike and such:
+
+| Type of vector       | Condition         | Physical meaning                           |
+| -------------------- | ----------------- | ------------------------------------------ |
+| **Timelike**         | $v^\mu v_\mu < 0$ | Massive particles (slower than light)      |
+| **Null (lightlike)** | $v^\mu v_\mu = 0$ | Light or anything traveling at exactly (c) |
+| **Spacelike**        | $v^\mu v_\mu > 0$ | Cannot be a physical trajectory            |
+
+So anyway:
+
+$$
+u^\mu = \frac{dx^\mu}{d\tau}
+$$
+
+is undefined for photons because the denominator is zero.
+
+### The physical reasoning
+
+In special relativity, the invariant interval is
+
+$$
+ds^2 = -c^2 dt^2 + dx^2 + dy^2 + dz^2.
+$$
+
+For a light ray:
+
+$$
+ds^2 = 0.
+$$
+
+This means the spacetime separation between any two points on a photon's trajectory is zero.
+
+In GR, this generalizes to:
+
+$$
+g_{\mu \nu} ,\frac{dx^\mu}{d\lambda} ,\frac{dx^\nu}{d\lambda} = 0,
+$$
+
+where $\lambda$ is any affine parameter along the photon’s worldline.
+
+Thus the **tangent vector** to a photon’s trajectory has zero norm.
+
+Since 4-momentum is proportional to the tangent vector for a geodesic:
+
+$$
+p^\mu p_\mu = 0.
+$$
+
+## Normalizing 4-velo?
+
+Normalizing the 4-velocity uses the fact that $d\tau$ is the “clock tick”
+
+For massive particles:
+
+$$
+u^\mu u_\mu = g_{\mu\nu} \frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau}
+= \frac{ds^2}{d\tau^2} = -c^2.
+$$
+
+So conventionally we divide by $c$ and write:
+
+$$
+u^\mu u_\mu = -1.
+$$
+
+For photons, $d\tau = 0 → u^\mu$ is not defined.
+
+## How mass connects to the norm
+
+Start from the SR energy-momentum relation:
+
+$$
+E^2 = (pc)^2 + (mc^2)^2.
+$$
+
+This is the “expanded” form. There is a covariant form:
+
+$$
+p^\mu p_\mu = - m^2 c^2,
+$$
+
+We can confirm the covariant form is equivalent to the expanded form. Start by expressing it in 4-vector language. Define the **4-momentum**:
+
+$$
+p^\mu = \left(\frac{E}{c}, p_x, p_y, p_z\right).
+$$
+
+The Minkowski metric (in −,+,+,+ signature):
+
+$$
+\eta_{\mu\nu} = \text{diag}(-1,1,1,1).
+$$
+
+Compute the invariant:
+
+$$
+p^\mu p_\mu
+= \eta_{\mu\nu} p^\mu p^\nu
+= -\left(\frac{E}{c}\right)^2 + p^2.
+$$
+
+So:
+
+$$
+p^\mu p_\mu = -\left(\frac{E}{c}\right)^2 + p^2.
+$$
+
+Set this equal to the invariant $-m^2 c^2$:
+
+$$
+-\left(\frac{E}{c}\right)^2 + p^2 = -m^2 c^2.
+$$
+Now multiply both sides by $(-c^2)$:
+
+$$
+E^2 - p^2 c^2 = m^2 c^4.
+$$
+
+Rearrange:
+
+$$
+E^2 = p^2 c^2 + m^2 c^4.
+$$
+
+So they are the same relation. Then from the covariant form we see:
+
+* If $m > 0$: $p^\mu p_\mu < 0$ (timelike)
+* If $m = 0$: $p^\mu p_\mu = 0$ (null)
+* If $m^2 < 0$: impossible
+
+This is why the norm of the 4-momentum - and by extension, the norm of the 4-velocity - tells us the rest mass.
+
+Indeed:
+
+$$
+u^\mu u_\mu = -1 \quad\Leftrightarrow\quad m \neq 0.
+$$
+
+Another example is a photon has **0 rest mass**.
+
+## What is h omega
+
+The instructor wrote this for a photon:
+
+$$
+p^\mu = \bar{h}\omega (1, \hat{1})
+$$
+
+where:
+
+* $p^\mu$ is the photon **4-momentum**,
+* $\hat{1}$ is a **unit spatial direction vector** (a unit 3-vector),
+* $\omega$ is the **angular frequency of the photon**,
+* $\bar{h}$ is the **reduced Planck constant** (better symbol is $\hbar$).
+
+
+$\hbar \omega$ is literally the **energy** of a photon.
+
+$$
+E = \hbar \omega.
+$$
+
+This is the quantum-energy formula relating:
+
+* $\omega$ (angular frequency)
+* $E$ (energy)
+* $\hbar$ (reduced Planck constant)
+
+Angular frequency $\omega$ is related to wavelength and ordinary frequency:
+
+$$
+\omega = 2\pi f = \frac{2\pi c}{\lambda}.
+$$
+
+So:
+
+$$
+E = \hbar \omega = h f.
+$$
+
+Why write this with $\hbar \omega$ as an example?
+
+Maybe to quickly demonstrate 4-momentum of a massless particle. For a massless particle the 4-momentum must satisfy:
+
+$$
+p^\mu p_\mu = 0.
+$$
+
+And
+
+$$
+p^\mu = (E/c, \vec{p}).
+$$
+
+A photon has:
+
+$$
+|\vec{p}| = \frac{E}{c}.
+$$
+
+So the simplest way to write a null 4-vector is:
+
+$$
+p^\mu = E (1, \hat{n}),
+$$
+
+or if using $\hbar\omega$ instead of E:
+
+$$
+p^\mu = \hbar \omega (1, \hat{n}).
+$$
+
+This works because:
+
+$$
+p^\mu p_\mu = -(\hbar\omega)^2 + (\hbar\omega)^2 = 0.
+$$
+
+So the expression
+
+$$
+  p^\mu = \hbar \omega (1, \hat{1})
+$$
+
+is a compact way to express the **null 4-momentum** of a photon.
+
+## Levi–Civita and Permutation Parity
+
+For (n)-dimensional space (most commonly (n=3)):
+
+$$
+\varepsilon_{i_1 i_2 i_3} =
+\begin{cases}
++1 & \text{if }(i_1,i_2,i_3)\text{ is an even permutation of }(1,2,3), \\
+-1 & \text{if }(i_1,i_2,i_3)\text{ is an odd permutation of }(1,2,3), \\
+0 & \text{if any indices are repeated.}
+\end{cases}
+$$
+
+So the Levi–Civita symbol is essentially a “parity detector.”
+
+What Are Even and Odd Permutations Here?
+
+Take the ordered tuple $(1,2,3)$.
+
+A permutation like:
+
+* $(1,2,3)$ itself is an **even** permutation → $ \varepsilon_{123} = +1 $
+* $(2,3,1)$ (cyclic shift) is also **even** → $ \varepsilon_{231} = +1 $
+* $(3,1,2)$ is **even** → $ \varepsilon_{312} = +1 $
+
+These three are even because each can be made from **2 transpositions** (or 0 in the trivial case).
+
+Examples of odd permutations:
+
+* $(1,3,2)$ → $ \varepsilon_{132} = -1 $
+* $(3,2,1)$ → $ \varepsilon_{321} = -1 $
+* $(2,1,3)$ → $ \varepsilon_{213} = -1 $
+
+These require an odd number of swaps to get from $(1,2,3)$.
+
+**Quick Example: Cross Product**
+
+$$
+(a \times b)*i = \sum*{jk} \varepsilon_{ijk} a_j b_k
+$$
+
+If $(i,j,k)$ is an even permutation of $(1,2,3)$, the component matches the usual right-hand rule.
+If odd, it flips sign.
+
+**Geometric Meaning**
+
+* Even permutations preserve orientation
+  → same handedness → (+1)
+
+* Odd permutations reverse orientation
+  → flip handedness → (-1)
+
+If we swap two basis vectors in a right-handed coordinate system, we get a left-handed one, and the Levi–Civita symbol reflects this sign flip.
