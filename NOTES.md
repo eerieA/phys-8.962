@@ -23,6 +23,7 @@
     - [How mass connects to the norm](#how-mass-connects-to-the-norm)
     - [What is h omega](#what-is-h-omega)
     - [Levi–Civita and Permutation Parity](#levicivita-and-permutation-parity)
+    - [Derive 4D Gauss Thm thru a V4 integral](#derive-4d-gauss-thm-thru-a-v4-integral)
 
 <!-- /TOC -->
 
@@ -759,3 +760,87 @@ If odd, it flips sign.
   → flip handedness → (-1)
 
 If we swap two basis vectors in a right-handed coordinate system, we get a left-handed one, and the Levi–Civita symbol reflects this sign flip.
+
+## Derive 4D Gauss Thm thru a V4 integral
+
+Related to this on the black board.
+
+...
+
+$$
+\begin{aligned}
+\int_{\partial V^4} N^{\alpha} d\Sigma_{\alpha}
+&=
+\underbrace{\int_{t=t_2} N^0 dxdydz}_{\text{upper time face}}
+-\underbrace{\int_{t=t_1} N^0 dxdydz}_{\text{lower time face}}\\
+&\quad +\underbrace{\int_{x=x_2} N^1 dtdydz}_{\text{face at }x_2}
+-\underbrace{\int_{x=x_1} N^1 dtdydz}_{\text{face at }x_1}\\
+&\quad +\underbrace{\int_{y=y_2} N^2dtdxdz}_{\text{face at }y_2}
+-\underbrace{\int_{y=y_1} N^2 dtdxdz}_{\text{face at }y_1}\\
+&\quad +\underbrace{\int_{z=z_2} N^3 dtdxdy}_{\text{face at }z_2}
+-\underbrace{\int_{z=z_1} N^3 dtdxdy}_{\text{face at }z_1}
+=0 .
+\end{aligned}
+$$
+
+Let $t_2 \to t_1​+dt$, rearrange:
+
+$$
+\begin{aligned}
+\int_{t_1+dt}N^0dxdydz-\int_{t_1}N^0dxdydz
+= -dt
+\Big[
+\int_{x_2}N^1dydz-\int_{x_1}N^1dydz \\
++\int_{y_2}N^2dxdz-\int_{y_1}N^2dxdz \\
++\int_{z_2}N^3dxdy-\int_{z_1}N^3dxdy
+\Big].
+\end{aligned}
+$$
+
+divide by $dt$, next going to take limit
+
+...
+
+**Why can $dt$ be moved out of spatial integrals**
+
+Over an infinitesimally thin time slab $t \in [t_1, t_1+dt]$, the integral over $t$ behaves like:
+
+$$
+\int_{t_1}^{t_1+dt} N^1(t,y,z), dt
+= N^1(t_1,y,z), dt + O(dt^2)
+$$
+
+This uses the fact that *any smooth function can be approximated by its value at one point* over an infinitesimal interval, we get:
+
+$$
+N^1(t,y,z) = N^1(t_1,y,z) + (t - t_1)\frac{\partial N^1}{\partial t}(t_1,y,z) + \cdots
+$$
+
+When integrating from $t_1$ to $t_1+dt$:
+
+* The first term gives $N^1(t_1,y,z), dt$.
+* The next term gives $\frac{1}{2}\partial_t N^1(t_1,y,z) (dt)^2$ $\to O((dt)^2)$.
+* Higher terms give even smaller orders.
+
+Next going back to the hypersurface measure. For the face $x=\text{const}$ it is:
+
+$$
+d\Sigma_1 = dtdydz.
+$$
+
+Use it on the right side and the equation becomes:
+
+$$
+\int_{x=x_2} N^1 dt dy dz
+= \int_{y_1}^{y_2} \int_{z_1}^{z_2}
+\left(\int_{t_1}^{t_1+dt} N^1(t,y,z) dt \right) dydz.
+$$
+
+Now expand the inner integral using that approximation we got, we obtain:
+
+$$
+\int_{x=x_2} N^1  dt dy dz
+= dt \int_{y_1}^{y_2} \int_{z_1}^{z_2} N^1(t_1,y,z) dy dz + O(dt^2).
+$$
+
+Now factoring out the $dt$ is possble. Same for other spatial integrals.
